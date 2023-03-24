@@ -2,8 +2,10 @@ package com.carparts.carparts.controller;
 
 import com.carparts.carparts.model.Car;
 import com.carparts.carparts.model.Parts;
+import com.carparts.carparts.model.Seller;
 import com.carparts.carparts.service.CarPartsService;
 import com.carparts.carparts.service.CarService;
+import com.carparts.carparts.service.SellerService;
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,9 @@ public class CarPartsController {
     @Autowired
     private CarService carService;
 
+    @Autowired
+    private SellerService sellerService;
+
 
     @GetMapping("/showParts")
     public ModelAndView showChosenParts(@RequestParam("car") String car,
@@ -39,6 +44,10 @@ public class CarPartsController {
         Integer carId = currentCar.getCarId();
         Integer sortingType = sorting.orElse(1);
         modelAndView.addObject("sortingType", sortingType);
+
+        List<Seller> allSellers = sellerService.loadAllSellers();
+        modelAndView.addObject("sellers", allSellers);
+
         List<Parts> allPartsForAuto;
         if (categoryId.isPresent()) {
             allPartsForAuto = carPartsService.getAllPartsForAutoByCategoryAndSorting(currentCar, categoryId.get(), sortingType);

@@ -159,6 +159,7 @@ hr {
 .checkbox_item input {
   float: left;
   width: 25px;
+  margin-bottom: 13px;
   height: 25px;
   outline: none;
   cursor: pointer;
@@ -27938,6 +27939,30 @@ blockquote .blockquote_title {
 .price_text {
   font-family: "Rubik", sans-serif;
 }
+
+.carparts_sidebar .sb_widget_title {
+  font-family: "Rubik", sans-serif;
+}
+
+.producer_title {
+  margin-top: 20px;
+}
+
+.apply_button {
+  width: 101%;
+  height: 65px;
+  display: block;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 65px;
+  text-align: center;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-family: "Rubik", sans-serif;
+  margin-top: 20px;
+}
+
 /* ====================================================================================================
 9 - media screen and (max-width: 320px) - end
 ==================================================================================================== */

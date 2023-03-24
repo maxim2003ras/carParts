@@ -557,145 +557,85 @@
 						<div class="col-lg-3">
 							<aside class="carparts_sidebar sidebar_section">
 
-								<div class="sb_widget sb_collapse_category">
-									<h3 class="sb_widget_title text-uppercase">Categories</h3>
-									<div id="sb_category_accordion" class="sb_category_accordion">
-										<div class="card">
-											<div class="card-header">
-												<a data-toggle="collapse" href="#collapse_one">
-													Car Parts
-												</a>
-											</div>
-											<div id="collapse_one" class="collapse show" data-parent="#sb_category_accordion">
-												<div class="card-body p-0">
-													<ul class="ul_li_block clearfix">
-														<li><a th:href="@{/showParts(car=${currentCar.maker},carname=${currentCar.model}, caryear=${currentCar.years}, category='1', sorting=${sortingType})}">Освещение</a></li>
-														<li><a th:href="@{/showParts(car=${currentCar.maker},carname=${currentCar.model}, caryear=${currentCar.years}, category='2', sorting=${sortingType})}">Кузовные детали</a></li>
-														<li><a th:href="@{/showParts(car=${currentCar.maker},carname=${currentCar.model}, caryear=${currentCar.years}, category='3', sorting=${sortingType})}">Шины</a></li>
-														<li><a th:href="@{/showParts(car=${currentCar.maker},carname=${currentCar.model}, caryear=${currentCar.years}, category='4', sorting=${sortingType})}">Диски</a></li>
-														<li><a th:href="@{/showParts(car=${currentCar.maker},carname=${currentCar.model}, caryear=${currentCar.years}, category='5', sorting=${sortingType})}">Электроника</a></li>
-													</ul>
-												</div>
-											</div>
-										</div>
+<!--								<div class="sb_widget sb_collapse_category">-->
+<!--									<h3 class="sb_widget_title text-uppercase">Categories</h3>-->
+<!--									<div id="sb_category_accordion" class="sb_category_accordion">-->
+<!--&lt;!&ndash;										<div class="card">&ndash;&gt;-->
+<!--&lt;!&ndash;											<div class="card-header">&ndash;&gt;-->
+<!--&lt;!&ndash;												<a data-toggle="collapse" href="#collapse_one">&ndash;&gt;-->
+<!--&lt;!&ndash;													Car Parts&ndash;&gt;-->
+<!--&lt;!&ndash;												</a>&ndash;&gt;-->
+<!--&lt;!&ndash;											</div>&ndash;&gt;-->
+<!--&lt;!&ndash;											<div id="collapse_one" class="collapse show" data-parent="#sb_category_accordion">&ndash;&gt;-->
+<!--&lt;!&ndash;												<div class="card-body p-0">&ndash;&gt;-->
+<!--&lt;!&ndash;													<ul class="ul_li_block clearfix">&ndash;&gt;-->
+<!--&lt;!&ndash;														<li><a th:href="@{/showParts(car=${currentCar.maker},carname=${currentCar.model}, caryear=${currentCar.years}, category='1', sorting=${sortingType})}">Освещение</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;														<li><a th:href="@{/showParts(car=${currentCar.maker},carname=${currentCar.model}, caryear=${currentCar.years}, category='2', sorting=${sortingType})}">Кузовные детали</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;														<li><a th:href="@{/showParts(car=${currentCar.maker},carname=${currentCar.model}, caryear=${currentCar.years}, category='3', sorting=${sortingType})}">Шины</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;														<li><a th:href="@{/showParts(car=${currentCar.maker},carname=${currentCar.model}, caryear=${currentCar.years}, category='4', sorting=${sortingType})}">Диски</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;														<li><a th:href="@{/showParts(car=${currentCar.maker},carname=${currentCar.model}, caryear=${currentCar.years}, category='5', sorting=${sortingType})}">Электроника</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;													</ul>&ndash;&gt;-->
+<!--&lt;!&ndash;												</div>&ndash;&gt;-->
+<!--&lt;!&ndash;											</div>&ndash;&gt;-->
+<!--&lt;!&ndash;										</div>&ndash;&gt;-->
 
-										<div class="card">
-											<div class="card-header">
-												<a class="collapsed" data-toggle="collapse" href="#collapse_two">
-													Oil Filter
-												</a>
-											</div>
-											<div id="collapse_two" class="collapse" data-parent="#sb_category_accordion">
-												<div class="card-body p-0">
-													<ul class="ul_li_block clearfix">
-														<li><a href="#!">Lights</a></li>
-														<li><a href="#!">Raincoats</a></li>
-														<li><a href="#!">Shorts</a></li>
-														<li><a href="#!">Pants</a></li>
-														<li><a href="#!">Shirts</a></li>
-														<li><a href="#!">Tires</a></li>
-													</ul>
-												</div>
-											</div>
-										</div>
 
-										<div class="card">
-											<div class="card-header">
-												<a class="collapsed" data-toggle="collapse" href="#collapse_three">
-													Accessories
-												</a>
-											</div>
-											<div id="collapse_three" class="collapse" data-parent="#sb_category_accordion">
-												<div class="card-body p-0">
-													<ul class="ul_li_block clearfix">
-														<li><a href="#!">Lights</a></li>
-														<li><a href="#!">Raincoats</a></li>
-														<li><a href="#!">Shorts</a></li>
-														<li><a href="#!">Pants</a></li>
-														<li><a href="#!">Shirts</a></li>
-														<li><a href="#!">Tires</a></li>
-													</ul>
-												</div>
-											</div>
-										</div>
-										
-										<div class="card">
-											<div class="card-header">
-												<a class="collapsed" data-toggle="collapse" href="#collapse_four">
-													Bags
-												</a>
-											</div>
-											<div id="collapse_four" class="collapse" data-parent="#sb_category_accordion">
-												<div class="card-body p-0">
-													<ul class="ul_li_block clearfix">
-														<li><a href="#!">Lights</a></li>
-														<li><a href="#!">Raincoats</a></li>
-														<li><a href="#!">Shorts</a></li>
-														<li><a href="#!">Pants</a></li>
-														<li><a href="#!">Shirts</a></li>
-														<li><a href="#!">Tires</a></li>
-													</ul>
-												</div>
-											</div>
-										</div>
-										
-										<div class="card">
-											<div class="card-header">
-												<a class="collapsed" data-toggle="collapse" href="#collapse_five">
-													Discounted products
-												</a>
-											</div>
-											<div id="collapse_five" class="collapse" data-parent="#sb_category_accordion">
-												<div class="card-body p-0">
-													<ul class="ul_li_block clearfix">
-														<li><a href="#!">Lights</a></li>
-														<li><a href="#!">Raincoats</a></li>
-														<li><a href="#!">Shorts</a></li>
-														<li><a href="#!">Pants</a></li>
-														<li><a href="#!">Shirts</a></li>
-														<li><a href="#!">Tires</a></li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+
+<!--										-->
+
+<!--									</div>-->
+<!--								</div>-->
 
 								<div class="sb_widget sb_color_checkbox">
-									<h3 class="sb_widget_title text-uppercase">Color</h3>
-									<form action="#">
+									<form th:href="@{/showParts(car=${currentCar.maker},carname=${currentCar.model}, caryear=${currentCar.years})}">
+										<h3 class="sb_widget_title text-uppercase">Категория</h3>
+										<input type="hidden" name="car" value="${currentCar.maker}" th:value="${currentCar.maker}">
+										<input type="hidden" name="carname" value="${currentCar.model}" th:value="${currentCar.model}">
+										<input type="hidden" name="caryear" value="${currentCar.years}" th:value="${currentCar.years}">
 										<ul class="ul_li_block clearfix">
 											<li>
 												<div class="checkbox_item">
-													<input id="black_color_checkbox" type="checkbox" checked>
-													<label for="black_color_checkbox">Black</label>
+													<input name="category" value="1" type="radio" checked>
+													<label for="black_color_checkbox">Освещение</label>
 												</div>
 											</li>
 											<li>
 												<div class="checkbox_item">
-													<input id="white_color_checkbox" type="checkbox">
-													<label for="white_color_checkbox">White</label>
+													<input name="category" value="2" type="radio">
+													<label for="white_color_checkbox">Кузовные детали</label>
 												</div>
 											</li>
 											<li>
 												<div class="checkbox_item">
-													<input id="blue_color_checkbox" type="checkbox">
-													<label for="blue_color_checkbox">Blue</label>
+													<input name="category" value="3" type="radio">
+													<label for="blue_color_checkbox">Шины</label>
 												</div>
 											</li>
 											<li>
 												<div class="checkbox_item">
-													<input id="green_color_checkbox" type="checkbox" checked>
-													<label for="green_color_checkbox">Green</label>
+													<input name="category" value="4" type="radio" checked>
+													<label for="green_color_checkbox">Диски</label>
 												</div>
 											</li>
 											<li>
 												<div class="checkbox_item">
-													<input id="yellow_color_checkbox" type="checkbox">
-													<label for="yellow_color_checkbox">Yellow</label>
+													<input name="category" value="5" type="radio">
+													<label for="yellow_color_checkbox">Электроника</label>
 												</div>
 											</li>
 										</ul>
+
+										<h3 class="sb_widget_title text-uppercase producer_title">Производитель</h3>
+										<ul th:each="seller : ${sellers}" class="ul_li_block clearfix">
+											<li>
+												<div class="checkbox_item">
+													<input name="seller" value="seller" th:value="${seller.sellerId}" id="black_color_checkbox" type="radio">
+													<label th:text="${seller.name}" for="black_color_checkbox">Black</label>
+												</div>
+											</li>
+										</ul>
+
+										<button type="submit" class="apply_button submit_btn bg_carparts_red">Применить</button>
 									</form>
 								</div>
 
