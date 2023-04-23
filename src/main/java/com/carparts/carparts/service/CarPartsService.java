@@ -46,4 +46,26 @@ public class CarPartsService {
         }
 
     }
+
+    public List<Parts> getAllPartsForAutoBySortingAndCategoryAndSeller(final Car currentCar,
+                                                                       final Integer categoryId,
+                                                                       final Integer sortingType,
+                                                                       final Integer sellerId) {
+        if (sortingType == 1) {
+            return carPartsRepository.findAllByCarAndCategoryCategoryIdAndSellerSellerIdOrderByPriceAsc(currentCar, categoryId, sellerId);
+        }
+        else if (sortingType == 2) {
+            return carPartsRepository.findAllByCarAndCategoryCategoryIdOrderByPriceDesc(currentCar, categoryId);
+        }
+        else if (sortingType == 3) {
+            return carPartsRepository.findAllByCarAndCategoryCategoryIdOrderByCreatedAtAsc(currentCar, categoryId);
+        }
+        else {
+            return carPartsRepository.findAllByCarAndCategoryCategoryIdOrderByCreatedAtDesc(currentCar, categoryId);
+        }
+    }
+
+    public Parts getPartInfoById(final Integer id) {
+        return carPartsRepository.findById(id).get();
+    }
 }

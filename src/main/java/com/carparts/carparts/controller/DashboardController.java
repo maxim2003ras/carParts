@@ -6,15 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@Slf4j
+
 @Controller
 public class DashboardController {
-    @Autowired
-    private CarRepository carRepository;
 
-    @GetMapping(value={"", "/", "home"})
+
+    @GetMapping(value={ "/dashboard"})
     public String displayDashboard() {
-        return "home";
+        return "shop_cart";
     }
 
 

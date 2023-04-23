@@ -21,12 +21,7 @@ public class Seller {
 
     private String phoneNumber;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-    @JoinTable(name = "seller_parts",
-    joinColumns = {
-        @JoinColumn(name = "seller_id", referencedColumnName = "sellerId")},
-    inverseJoinColumns = {
-        @JoinColumn(name = "part_id", referencedColumnName = "partId")})
+    @OneToMany(mappedBy = "seller", fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = Parts.class)
     private Set<Parts> parts;
 
 

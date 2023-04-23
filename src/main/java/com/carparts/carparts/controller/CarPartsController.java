@@ -37,7 +37,8 @@ public class CarPartsController {
                                         @RequestParam("carname") String carName,
                                         @RequestParam("caryear") String carYear,
                                         @RequestParam(name = "category", required = false) Optional<Integer> categoryId,
-                                        @RequestParam(name = "sorting", required = false) Optional <Integer> sorting) {
+                                        @RequestParam(name = "sorting", required = false) Optional <Integer> sorting,
+                                        @RequestParam(name = "seller", required = false) Optional <Integer> sellerId) {
 
         ModelAndView modelAndView = new ModelAndView("autoParts.html");
         Car currentCar = carService.getCarByParams(car, carName, carYear);
@@ -50,7 +51,12 @@ public class CarPartsController {
 
         List<Parts> allPartsForAuto;
         if (categoryId.isPresent()) {
-            allPartsForAuto = carPartsService.getAllPartsForAutoByCategoryAndSorting(currentCar, categoryId.get(), sortingType);
+            if (sellerId.isPresent()) {
+                allPartsForAuto = carPartsService.getAllPartsForAutoBySortingAndCategoryAndSeller(currentCar, categoryId.get(), sortingType, sellerId.get());
+            }
+            else {
+                allPartsForAuto = carPartsService.getAllPartsForAutoByCategoryAndSorting(currentCar, categoryId.get(), sortingType);
+            }
             modelAndView.addObject("currentCategory", categoryId.get());
         }
         else {

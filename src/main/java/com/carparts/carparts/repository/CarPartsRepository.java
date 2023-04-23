@@ -18,8 +18,9 @@ public interface CarPartsRepository extends CrudRepository<Parts, Integer> {
     List<Parts> findAllByCarAndCategoryCategoryIdOrderByCreatedAtDesc(Car currentCar, Integer categoryId);
 
     List<Parts> findAllByCarOrderByPriceDesc(Car currentCar);
-
     List<Parts> findAllByCarOrderByCreatedAtAsc(Car currentCar);
-
     List<Parts> findAllByCarOrderByCreatedAtDesc(Car currentCar);
+
+    List<Parts> findAllByCarAndCategoryCategoryIdAndSellerSellerIdOrderByPriceAsc(Car currentCar, Integer categoryId, Integer sellerId);
+
 }

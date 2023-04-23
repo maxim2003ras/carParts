@@ -925,6 +925,14 @@ hr {
 
 .mb_100 {
   margin-bottom: 100px;
+  margin-top: 100px;
+}
+
+.descr_tap {
+  color: #1e1e1e;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Font Awesome 5 Pro';
 }
 
 /* padding - margin setting - end
@@ -1576,6 +1584,10 @@ button {
 }
 .text-white .text_btn span:before {
   background-color: #ffffff;
+}
+
+.text-center {
+  margin-top: 100px;
 }
 
 /* text btn - end */
@@ -19335,7 +19347,6 @@ blockquote .blockquote_title {
   border-radius: 4px;
   padding: 80px 100px;
   background-size: 100%;
-  background-color: #f0f2f1;
 }
 .reg_form_wrap.login_form {
   background-position: left 480px center;
@@ -19361,11 +19372,12 @@ blockquote .blockquote_title {
   font-size: 14px;
   font-weight: 600;
 }
+
+
 .reg_form_wrap .form_item input {
   border: none;
   padding: 0px;
   height: 45px;
-  padding-left: 50px;
   background-color: transparent;
   border-bottom: 2px solid #cccecd;
 }
@@ -20740,9 +20752,7 @@ blockquote .blockquote_title {
     margin-bottom: 5px;
   }
 
-  .sec_ptb_140 {
-    padding: 120px 0px;
-  }
+
 
   .sports_feature_fullimage .item_content {
     padding: 25px;

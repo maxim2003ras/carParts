@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -33,6 +34,10 @@ public class Parts extends BaseEntity {
     @JoinColumn(name = "category_id", referencedColumnName = "categoryId")
     private PartsCategory category;
 
-    @ManyToMany(mappedBy = "parts", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-    private Set<Seller> sellers;
+    @ManyToOne
+    @JoinColumn(name = "seller_id", referencedColumnName = "sellerId")
+    private Seller seller;
+
+    @ManyToMany(mappedBy = "parts", fetch = FetchType.EAGER,cascade = CascadeType.PERSIST)
+    private Set<Person> persons = new HashSet<>();
 }
