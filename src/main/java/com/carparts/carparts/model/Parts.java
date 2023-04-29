@@ -5,7 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -15,7 +17,6 @@ public class Parts extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-    @GenericGenerator(name = "native",strategy = "native")
     private int partId;
 
     private int partNumber;
@@ -25,6 +26,10 @@ public class Parts extends BaseEntity {
     private String partName;
 
     private String partDescription;
+
+    @Lob
+    @Column(columnDefinition = "MEDIUMBLOB")
+    private String image;
 
     @ManyToOne
     @JoinColumn(name = "car_id", referencedColumnName = "carId")
@@ -39,5 +44,5 @@ public class Parts extends BaseEntity {
     private Seller seller;
 
     @ManyToMany(mappedBy = "parts", fetch = FetchType.EAGER,cascade = CascadeType.PERSIST)
-    private Set<Person> persons = new HashSet<>();
+    private List<Person> persons = new ArrayList<>();
 }

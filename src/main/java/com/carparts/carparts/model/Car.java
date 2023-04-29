@@ -14,7 +14,6 @@ public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @GenericGenerator(name = "native",strategy = "native")
     private int carId;
 
     private String maker;

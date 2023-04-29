@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
 </head>
 <body>
@@ -9,7 +9,7 @@
             <div class="row no-gutters">
                 <div class="col-lg-3">
                     <div class="brand_logo">
-                        <a class="brand_link" href="home">
+                        <a class="brand_link" th:href="@{/home}">
                             <img src="/assets/images/logo/logo_01_1x.png" srcset="/assets/images/logo/logo_01_2x.png 2x" alt="logo_not_found">
                         </a>
 
@@ -34,7 +34,7 @@
                     <div class="header_top">
                         <div class="row w-100 d-flex align-items-center justify-content-lg-between">
                             <div class="col-lg-6">
-                                <form action="#">
+                                <form th:action="@{/showResults}" method="get">
                                     <div class="form_item search_box">
                                         <input type="search" name="search" placeholder="Search">
                                         <button type="submit" class="submit_btn bg_carparts_red"><i class="fal fa-search"></i></button>
@@ -48,26 +48,9 @@
                                         <img src="/assets/images/icons/user.png" alt="user_icon">
                                     </div>
                                     <div class="item_content">
-                                        <span>Login here</span>
-                                        <strong>My Account</strong>
-                                    </div>
-                                </div>
-                                <div id="use_deropdown" class="collapse_dropdown collapse">
-                                    <div class="dropdown_content">
-                                        <div class="profile_info clearfix">
-                                            <div class="user_thumbnail">
-                                                <img src="/assets/images/meta/img_01.png" alt="thumbnail_not_found">
-                                            </div>
-                                            <div class="user_content">
-                                                <h4 class="user_name">Jone Doe</h4>
-                                                <span class="user_title">Seller</span>
-                                            </div>
-                                        </div>
-                                        <ul class="settings_options ul_li_block clearfix">
-                                            <li><a href="#!"><i class="fal fa-user-circle"></i> Profile</a></li>
-                                            <li><a href="#!"><i class="fal fa-user-cog"></i> Settings</a></li>
-                                            <li><a href="#!"><i class="fal fa-sign-out-alt"></i> Logout</a></li>
-                                        </ul>
+                                        <a th:href="@{/login}" sec:authorize="isAnonymous()"><span>Войти</span></a>
+                                        <a th:href="@{/logout}" sec:authorize="isAuthenticated()"><span>Выйти</span></a>
+                                        <a th:href="@{/myCart}" sec:authorize="isAuthenticated()"><strong>Мой аккаунт</strong></a>
                                     </div>
                                 </div>
                             </div>
@@ -78,8 +61,7 @@
                                         <img src="/assets/images/icons/shopping_cart.png" alt="user_icon">
                                     </div>
                                     <div class="item_content">
-                                        <span>Shopping Cart</span>
-                                        <strong>$0.00</strong>
+                                        <a th:href="@{/myCart}"><span>Корзина</span></a>
                                     </div>
                                 </div>
                             </div>

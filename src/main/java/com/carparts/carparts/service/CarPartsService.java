@@ -68,4 +68,8 @@ public class CarPartsService {
     public Parts getPartInfoById(final Integer id) {
         return carPartsRepository.findById(id).get();
     }
+
+    public List<Parts> getAllPartsBySearch(final String searchQuery) {
+        return carPartsRepository.findAllBySearchQuery(searchQuery);
+    }
 }

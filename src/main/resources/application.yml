@@ -6,5 +6,12 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 5MB
+      file-size-threshold: 2KB
+      max-request-size: 215MB
 server:
   port: 8082
+

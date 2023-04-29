@@ -77,37 +77,54 @@
         <div class="container">
             <div class="reg_form_wrap current_form login_form" >
                 <ul>
-                    <li class="alert alert-danger" role="alert" th:each="error : ${#fields.errors('person.*')}" th:text="${error}" />
+                    <li class="alert alert-danger" role="alert" th:each="error : ${#fields.errors('newPart.*')}" th:text="${error}" />
+                    <li class="alert  alert-danger" role="alert" th:if="${!#strings.isEmpty(errorMessage)}"
+                        th:text="${errorMessage}"/>
                 </ul>
-                <form th:action="@{/createUser}" method="post" th:object="${person}">
+                <button class="custom_btn bg_default_red text-uppercase mb_50 current_btn" th:if="${!#strings.isEmpty(checkErr)}"><a
+                        th:href="@{/addNewItem}">ОК</a></button>
+                <form th:action="@{/addNewItem}" method="post" th:object="${newPart}">
                     <div class="reg_form">
-                        <h2 class="form_title text-uppercase text-center">Login</h2>
+                        <h2 class="form_title text-uppercase text-center">Добавление товара</h2>
                         <div class="form_item">
-                            <input id="username_input" type="text" name="username" th:field="*{name}" placeholder="Имя">
+                            <input id="username_input" type="text" name="username" th:field="*{partNumber}" placeholder="Артикул запчасти">
                         </div>
                         <div class="form_item">
-                            <input id="password_input" type="text" name="password" placeholder="Номер телефона" th:field="*{mobileNumber}">
+                            <input id="password_input" type="text" name="password" placeholder="Название запчасти" th:field="*{partName}">
                         </div>
                         <div class="form_item">
-                            <input type="text" name="text" placeholder="Email" th:field="*{email}">
+                            <input type="text" name="text" placeholder="Описание запчасти" th:field="*{partDescription}">
                         </div>
                         <div class="form_item">
-                            <input type="text" name="text" placeholder="Подтверждение Email" th:field="*{confirmEmail}">
+                            <input type="text" name="text" placeholder="Стоимость запчасти" th:field="*{price}">
                         </div>
                         <div class="form_item">
-                            <input type="password" name="text" placeholder="Пароль" th:field="*{pwd}">
+                            <select name="carMaker">
+                                <option th:each="maker : ${makers}" th:text="${maker}"></option>
+                            </select>
                         </div>
                         <div class="form_item">
-                            <input type="password" name="text" placeholder="Подтверждение пароля" th:field="*{confirmPwd}">
+                            <select name="carModel">
+                                <option th:each="model : ${models}" th:text="${model}"></option>
+                            </select>
+                        </div>
+                        <div class="form_item">
+                            <select name="carYears">
+                                <option th:each="year : ${years}" th:text="${year}"></option>
+                            </select>
+                        </div>
+                        <div class="form_item">
+                            <select name="category">
+                                <option th:each="cat : ${ctgs}" th:text="${cat}"></option>
+                            </select>
+                        </div>
+                        <div class="form_item">
+                            <select name="sellerName">
+                                <option th:each="seller : ${sellers}" th:text="${seller}"></option>
+                            </select>
                         </div>
 
-                        <button type="submit" class="custom_btn bg_default_red text-uppercase mb_50">Создать аккаунт</button>
-
-
-                        <div class="create_account text-center">
-                            <h4 class="small_title_text text-center text-uppercase">Уже зарегистрированы?</h4>
-                            <a class="create_account_btn text-uppercase" th:href="@{/login}">Войти</a>
-                        </div>
+                        <button type="submit" class="custom_btn bg_default_red text-uppercase mb_50">Добавить</button>
                     </div>
                 </form>
             </div>
@@ -146,7 +163,7 @@
 <script src="assets/js/wow.min.js"></script>
 
 <!-- nice select - jquery include -->
-<script src="assets/js/nice-select.min.js"></script>
+
 
 <!-- carousel - jquery include -->
 <script src="assets/js/slick.min.js"></script>

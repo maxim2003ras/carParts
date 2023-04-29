@@ -15,7 +15,6 @@ public class PartsCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-    @GenericGenerator(name = "native", strategy = "native")
     private int categoryId;
 
     private String categoryName;

@@ -23,4 +23,7 @@ public interface CarPartsRepository extends CrudRepository<Parts, Integer> {
 
     List<Parts> findAllByCarAndCategoryCategoryIdAndSellerSellerIdOrderByPriceAsc(Car currentCar, Integer categoryId, Integer sellerId);
 
+
+    @Query(value = "SELECT * from parts p where p.part_name like %:searchQuery% or p.part_description like %:searchQuery%", nativeQuery = true)
+    List<Parts> findAllBySearchQuery(String searchQuery);
 }

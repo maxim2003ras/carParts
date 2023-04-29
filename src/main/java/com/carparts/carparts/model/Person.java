@@ -11,7 +11,9 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -77,5 +79,5 @@ public class Person extends BaseEntity{
                     @JoinColumn(name = "person_id", referencedColumnName = "personId")},
             inverseJoinColumns = {
                     @JoinColumn(name = "part_id", referencedColumnName = "partId")})
-    private Set<Parts> parts = new HashSet<>();
+    private List<Parts> parts = new ArrayList<>();
 }

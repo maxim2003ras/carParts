@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -53,6 +54,7 @@ public class CarPartsController {
         if (categoryId.isPresent()) {
             if (sellerId.isPresent()) {
                 allPartsForAuto = carPartsService.getAllPartsForAutoBySortingAndCategoryAndSeller(currentCar, categoryId.get(), sortingType, sellerId.get());
+                modelAndView.addObject("currentSeller", sellerId.get());
             }
             else {
                 allPartsForAuto = carPartsService.getAllPartsForAutoByCategoryAndSorting(currentCar, categoryId.get(), sortingType);
@@ -66,4 +68,14 @@ public class CarPartsController {
         modelAndView.addObject("currentCar", currentCar);
         return modelAndView;
     }
+
+    @GetMapping("/showResults")
+    public ModelAndView showSearchResults(@RequestParam("search") String searchQuery) {
+        ModelAndView modelAndView = new ModelAndView("searchParts.html");
+        List<Parts> allPartsForAuto = carPartsService.getAllPartsBySearch(searchQuery);
+
+        modelAndView.addObject("searchParts", allPartsForAuto);
+        return modelAndView;
+    }
+
 }

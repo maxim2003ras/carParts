@@ -1966,6 +1966,11 @@ button {
   height: auto;
   position: absolute;
 }
+
+.current_btn {
+ width: 100%;
+}
+
 .sticky_header.stuck {
   position: fixed;
   animation: 0.5s ease-in-out 0s normal none 1 running fadeInDown;
@@ -1976,6 +1981,14 @@ button {
 }
 .header_contact_info i {
   margin-right: 5px;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  padding-left: 0;
 }
 
 .mh_action_btns {
@@ -18246,6 +18259,10 @@ blockquote .blockquote_title {
   color: #4e97fd;
 }
 
+.current_fal {
+  margin-left: 17px;
+}
+
 /* electronic details - end */
 /* fashion minimal details - end */
 .fm_details_section .di_tab_nav {
@@ -19343,7 +19360,7 @@ blockquote .blockquote_title {
 ==================================================================================================== */
 .reg_form_wrap {
   margin: auto;
-  max-width: 800px;
+  max-width: 650px;
   border-radius: 4px;
   padding: 80px 100px;
   background-size: 100%;
@@ -19358,7 +19375,7 @@ blockquote .blockquote_title {
   padding: 0px;
 }
 .reg_form_wrap .reg_form {
-  max-width: 400px;
+
 }
 .reg_form_wrap .form_title {
   color: #2e2e2e;
