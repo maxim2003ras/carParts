@@ -157,7 +157,7 @@
 									<td>
 										<div class="cart_product">
 											<div class="item_image">
-												<img src="assets/images/cart/img_04.jpg" alt="image_not_found">
+												<img th:src="*{'data:image/jpeg;base64,'+{part.image}}" style="width: 150px;height: 150px;" alt="image_not_found">
 											</div>
 											<div class="item_content">
 												<h4 th:text="${part.partName}" class="item_title"></h4>
@@ -183,30 +183,25 @@
 							<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
 								<div class="coupon_form">
 									<div class="form_item mb-0">
-										<input type="text" class="coupon" placeholder="Coupon Code">
+										<input type="text" class="coupon" placeholder="Код купона">
 									</div>
-									<button type="submit" class="custom_btn bg_danger text-uppercase">Apply Coupon</button>
+									<button type="submit" class="custom_btn bg_danger text-uppercase">Применить купон</button>
 								</div>
 							</div>
-
-							<div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
-								<div class="cart_update_btn">
-									<button type="button" class="custom_btn bg_secondary text-uppercase">Update Cart</button>
+							<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+								<div class="cart_pricing_table pt-0 text-uppercase" data-bg-color="#f2f3f5">
+									<h3 class="table_title text-center" data-bg-color="#ededed">Общая сумма</h3>
+									<ul class="ul_li_block clearfix">
+										<li><span>к оплате</span> <span th:text="${totalSum} + ' BYN'"></span></li>
+									</ul>
+									<a href="shop_checkout.html" class="custom_btn bg_success">Перейти к оформлению</a>
 								</div>
 							</div>
 						</div>
 					</div>
 
 					<div class="row justify-content-lg-end">
-						<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-							<div class="cart_pricing_table pt-0 text-uppercase" data-bg-color="#f2f3f5">
-								<h3 class="table_title text-center" data-bg-color="#ededed">Общая сумма</h3>
-								<ul class="ul_li_block clearfix">
-									<li><span>к оплате</span> <span th:text="${totalSum} + ' BYN'"></span></li>
-								</ul>
-								<a href="shop_checkout.html" class="custom_btn bg_success">Перейти к оформлению</a>
-							</div>
-						</div>
+
 					</div>
 
 				</div>

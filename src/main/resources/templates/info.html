@@ -81,50 +81,14 @@
 					<div class="row mb_100 justify-content-lg-between">
 						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 							<div class="shop_details_image">
-								<div class="tab-content">
-									<div id="tab_1" class="tab-pane active">
-										<img src="assets/images/details/carparts/img_01.jpg" alt="image_not_found">
-									</div>
-									<div id="tab_2" class="tab-pane fade">
-										<img src="assets/images/details/carparts/img_01.jpg" alt="image_not_found">
-									</div>
-									<div id="tab_3" class="tab-pane fade">
-										<img src="assets/images/details/carparts/img_01.jpg" alt="image_not_found">
-									</div>
-									<div id="tab_4" class="tab-pane fade">
-										<img src="assets/images/details/carparts/img_01.jpg" alt="image_not_found">
-									</div>
-								</div>
-
-								<ul class="nav ul_li clearfix" role="tablist">
-									<li>
-										<a class="active" data-toggle="tab" href="#tab_1">
-											<img src="assets/images/details/carparts/img_02.jpg" alt="image_not_found">
-										</a>
-									</li>
-									<li>
-										<a data-toggle="tab" href="#tab_2">
-											<img src="assets/images/details/carparts/img_03.jpg" alt="image_not_found">
-										</a>
-									</li>
-									<li>
-										<a data-toggle="tab" href="#tab_3">
-											<img src="assets/images/details/carparts/img_04.jpg" alt="image_not_found">
-										</a>
-									</li>
-									<li>
-										<a data-toggle="tab" href="#tab_4">
-											<img src="assets/images/details/carparts/img_05.jpg" alt="image_not_found">
-										</a>
-									</li>
-								</ul>
+								<img th:src="*{'data:image/jpeg;base64,'+{partInfo.image}}" style="width: 550px;height: 460px;" alt="image_not_found">
 							</div>
 						</div>
 
 						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 							<div class="shop_details_content">
 								<h2 class="item_title mb-2" th:text="${partInfo.partName}">Mini Wiggle Dress in Animal Print</h2>
-								<p class="mb-0" th:text="${'Артикул детали: ' + partInfo.partNumber}">
+								<p class="mb-0 arct_title" th:text="${'Артикул детали: ' + partInfo.partNumber}">
 								</p>
 
 								<hr>
@@ -137,16 +101,16 @@
 										</div>
 									</li>
 									<li>
-										<a class="custom_btn bg_black text-uppercase" th:href="@{/addToCart/{id}(id = ${partInfo.partId})}"><i class="fal fa-shopping-bag mr-2"></i> в корзину</a>
+										<a class="custom_btn btn bg_default_red text-uppercase add_to_cart" th:href="@{/addToCart/{id}(id = ${partInfo.partId})}"><i class="fal fa-shopping-bag mr-2"></i> в корзину</a>
 									</li>
 								</ul>
 
 								<hr>
 
 								<ul class="product_info ul_li_block mb_30 clearfix">
-									<li><strong>SKU:</strong> U2012</li>
-									<li><strong>Categories:</strong> <a href="#!">Dress</a> <a href="#!">Handbag</a> <a href="#!">T-Shirts</a></li>
-									<li><strong>Tags:</strong> <a href="#!">Hot</a> <a href="#!">Women</a></li>
+									<li class="arct_title" th:text="${'Категория: ' + partInfo.category.categoryName}"><strong>SKU:</strong> U2012</li>
+									<li class="arct_title" th:text="${'Производитель: ' + partInfo.seller.name}"><strong>SKU:</strong> U2012</li>
+									<li class="arct_title" th:text="${'Предназначение: ' + partInfo.car.maker + ' ' + partInfo.car.model + ' ' +partInfo.car.years}"><strong>SKU:</strong> U2012</li>
 								</ul>
 
 							</div>
@@ -156,13 +120,13 @@
 					<div class="details_description_tab">
 						<ul class="nav ul_li_center text-uppercase" role="tablist">
 							<li>
-								<p class="active item_title" data-toggle="tab" href="#description_tab"><strong>ОПИСАНИЕ</strong></p>
+								<p class="active item_title descr_title" data-toggle="tab" href="#description_tab"><strong>ОПИСАНИЕ</strong></p>
 							</li>
 						</ul>
 
 						<!-- Tab panes -->
 						<div class="tab-content">
-							<div id="description_tab" class="tab-pane active">
+							<div id="description_tab" class="tab-pane active descr_info_title">
 								<p th:text="${partInfo.partDescription}" class="mb-0">
 									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur..
 								</p>
@@ -283,17 +247,12 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 					<div class="item_image">
-						<img src="assets/images/shop/fashion_minimal/img_07.jpg" alt="image_not_found">
+						<img th:src="*{'data:image/jpeg;base64,' + {part.image}}" style="width: 150px;height: 150px;" alt="image_not_found">
 					</div>
 					<div class="item_content">
 						<h2 class="item_title mb_15">Digital Infrared Thermometer</h2>
 						<div class="rating_star mb_30 clearfix">
 							<ul class="float-left ul_li mr-2">
-								<li class="active"><i class="las la-star"></i></li>
-								<li class="active"><i class="las la-star"></i></li>
-								<li class="active"><i class="las la-star"></i></li>
-								<li class="active"><i class="las la-star"></i></li>
-								<li><i class="las la-star"></i></li>
 							</ul>
 							<span class="review_text">(12 Reviews)</span>
 						</div>

@@ -1,7 +1,9 @@
 package com.carparts.carparts.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -45,4 +47,5 @@ public class Parts extends BaseEntity {
 
     @ManyToMany(mappedBy = "parts", fetch = FetchType.EAGER,cascade = CascadeType.PERSIST)
     private List<Person> persons = new ArrayList<>();
+
 }

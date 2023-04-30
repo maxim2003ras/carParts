@@ -154,15 +154,10 @@
 											<div th:each="part : ${carPartsForAuto}" class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 												<div class="carparts_product_grid" data-bg-color="#f0eeee">
 													<div class="item_image" data-bg-color="#f8f8f8">
-														<img src="assets/images/shop/car_parts/img_01.png" alt="image_not_found">
+														<img th:src="*{'data:image/jpeg;base64,'+{part.image}}" style="width: 224px;height: 165px;" alt="image_not_found">
 													</div>
 													<div class="item_content">
 														<ul class="rating_star ul_li clearfix">
-															<li><i class="fas fa-star"></i></li>
-															<li><i class="fas fa-star"></i></li>
-															<li><i class="fas fa-star"></i></li>
-															<li><i class="fas fa-star"></i></li>
-															<li><i class="fal fa-star"></i></li>
 														</ul>
 														<h3 class="item_title">
 															<a th:text="${part.partName}" th:href="@{'/itemInfo/' + ${part.partId}}">earphone case</a>
@@ -196,17 +191,12 @@
 									<div class="mb_50">
 										<div th:each="car : ${carPartsForAuto}" class="carparts_product_listlayout" data-bg-color="#f0eeee">
 											<div class="item_image" data-bg-color="#f8f8f8">
-												<img src="assets/images/shop/car_parts/img_01.png" alt="image_not_found">
+												<img th:src="*{'data:image/jpeg;base64,'+{car.image}}" style="width: 250px;height: 200px;" alt="image_not_found">
 												<ul class="product_label ul_li text-uppercase clearfix">
 												</ul>
 											</div>
 											<div class="item_content">
 												<ul class="rating_star ul_li clearfix">
-													<li><i class="fas fa-star"></i></li>
-													<li><i class="fas fa-star"></i></li>
-													<li><i class="fas fa-star"></i></li>
-													<li><i class="fas fa-star"></i></li>
-													<li><i class="fal fa-star"></i></li>
 												</ul>
 												<h3 class="item_title">
 													<a th:text="${car.partName}" th:href="@{'/itemInfo/' + ${car.partId}}"></a>
@@ -215,6 +205,7 @@
 												</p>
 												<div class="action_btns_wrap">
 													<span th:text="${car.price} + ' BYN' " class="price_text"><strong></strong></span>
+													<li><a href="#!" class="custom_btn bg_carparts_red">В корзину</a></li>
 												</div>
 											</div>
 										</div>
@@ -255,31 +246,31 @@
 											<li>
 												<div class="checkbox_item">
 													<input name="category" value="1" type="radio">
-													<label for="black_color_checkbox">Освещение</label>
+													<label for="black_color_checkbox" class="arct_title">Освещение</label>
 												</div>
 											</li>
 											<li>
 												<div class="checkbox_item">
 													<input name="category" value="2" type="radio">
-													<label for="white_color_checkbox">Кузовные детали</label>
+													<label for="white_color_checkbox" class="arct_title">Кузовные детали</label>
 												</div>
 											</li>
 											<li>
 												<div class="checkbox_item">
 													<input name="category" value="3" type="radio">
-													<label for="blue_color_checkbox">Шины</label>
+													<label for="blue_color_checkbox" class="arct_title">Шины</label>
 												</div>
 											</li>
 											<li>
 												<div class="checkbox_item">
 													<input name="category" value="4" type="radio">
-													<label for="green_color_checkbox">Диски</label>
+													<label for="green_color_checkbox" class="arct_title">Диски</label>
 												</div>
 											</li>
 											<li>
 												<div class="checkbox_item">
 													<input name="category" value="5" type="radio">
-													<label for="yellow_color_checkbox">Электроника</label>
+													<label for="yellow_color_checkbox" class="arct_title">Электроника</label>
 												</div>
 											</li>
 										</ul>
@@ -303,7 +294,7 @@
 											<li>
 												<div class="checkbox_item">
 													<input  name="seller" th:value="${seller.sellerId}" id="seller_checkbox" type="radio">
-													<label th:text="${seller.name}" for="seller_checkbox"></label>
+													<label th:text="${seller.name}" for="seller_checkbox" class="arct_title"></label>
 												</div>
 											</li>
 										</ul>

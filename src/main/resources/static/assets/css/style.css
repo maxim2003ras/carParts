@@ -16980,7 +16980,7 @@ blockquote .blockquote_title {
 
 .product_info li {
   color: #3d3d3d;
-  font-size: 17px;
+  font-size: 20px;
 }
 .product_info li:not(:last-child) {
   margin-bottom: 5px;
@@ -17126,7 +17126,32 @@ blockquote .blockquote_title {
 .shop_details_content .item_title {
   font-size: 40px;
   font-weight: 700;
+  margin-right: 21px;
   margin-bottom: 15px;
+  font-family: "Roboto", sans-serif;
+}
+
+.descr_title {
+  font-family: "Jost";
+  font-size: 27px;
+}
+
+.custom_btn .btn .bg_default_red .text-uppercase .add_to_cart {
+  font-family: "Jost";
+}
+
+.descr_info_title {
+  font-family: "Jost";
+  font-size: 21px;
+}
+
+.arct_title {
+  font-family: "Jost", sans-serif;
+  font-size: 22px;
+}
+
+.add_to_cart {
+  font-family: "Jost", sans-serif;
 }
 .shop_details_content .item_price {
   display: block;
@@ -18796,7 +18821,6 @@ blockquote .blockquote_title {
 .cart_table thead {
   border: none;
   padding-left: 80px;
-  background-color: #f5f5f5;
 }
 .cart_table thead th {
   border: none;

@@ -94,9 +94,9 @@ public class AdminController {
         return "save-image.html";
     }
 
-    @PostMapping("/saveImage")
-    public String loadImageForItem(@RequestParam("file") MultipartFile file) {
-        adminService.saveImageForItem(file, 202);
+    @PostMapping("/saveImage/{id}")
+    public String loadImageForItem(@RequestParam("file") MultipartFile file, @PathVariable("id") int id) {
+        adminService.saveImageForItem(file, id);
         return "home.html";
     }
 }

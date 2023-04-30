@@ -77,7 +77,7 @@
     <div class="container">
       <div class="reg_form_wrap current_form login_form" >
 
-        <form th:action="@{/saveImage}" method="post" enctype="multipart/form-data">
+        <form th:action="@{/saveImage/{id}(id = ${partId})}" method="post" enctype="multipart/form-data">
           <div class="custom-file mb-4">
             <input type="file" name="file" id="file" class="custom-file-input">
             <label class="custom-file-label" for="file">Изображение товара</label>
