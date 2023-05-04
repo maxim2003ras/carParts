@@ -72,4 +72,19 @@ public class CarPartsService {
     public List<Parts> getAllPartsBySearch(final String searchQuery) {
         return carPartsRepository.findAllBySearchQuery(searchQuery);
     }
+
+    public List<Parts> getAllPartsForAutoBySellerAndSorting(final Car currentCar, final Integer sellerId, final Integer sortingType) {
+        if (sortingType == 1) {
+            return carPartsRepository.findAllByCarAndSellerSellerIdOrderByPriceAsc(currentCar, sellerId);
+        }
+        else if (sortingType == 2) {
+            return carPartsRepository.findAllByCarAndSellerSellerIdOrderByPriceDesc(currentCar, sellerId);
+        }
+        else if (sortingType == 3) {
+            return carPartsRepository.findAllByCarAndSellerSellerIdOrderByCreatedAtAsc(currentCar, sellerId);
+        }
+        else {
+            return carPartsRepository.findAllByCarAndSellerSellerIdOrderByCreatedAtDesc(currentCar, sellerId);
+        }
+    }
 }

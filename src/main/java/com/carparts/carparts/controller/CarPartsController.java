@@ -53,17 +53,36 @@ public class CarPartsController {
         List<Parts> allPartsForAuto;
         if (categoryId.isPresent()) {
             if (sellerId.isPresent()) {
-                allPartsForAuto = carPartsService.getAllPartsForAutoBySortingAndCategoryAndSeller(currentCar, categoryId.get(), sortingType, sellerId.get());
-                modelAndView.addObject("currentSeller", sellerId.get());
+                if (categoryId.get().equals(999) && sellerId.get().equals(999)) {
+                    allPartsForAuto = carPartsService.getAllPartsForAutoAndSorting(currentCar, sortingType);
+                }
+                else if (sellerId.get().equals(999)) {
+                    allPartsForAuto = carPartsService.getAllPartsForAutoByCategoryAndSorting(currentCar, categoryId.get(), sortingType);
+                }
+                else if (categoryId.get().equals(999)){
+                    allPartsForAuto = carPartsService.getAllPartsForAutoBySellerAndSorting(currentCar, sellerId.get(), sortingType);
+                    modelAndView.addObject("currentSeller", sellerId.get());
+                }
+                else {
+                    allPartsForAuto = carPartsService.getAllPartsForAutoBySortingAndCategoryAndSeller(currentCar, categoryId.get(), sortingType, sellerId.get());
+                    modelAndView.addObject("currentSeller", sellerId.get());
+                }
             }
             else {
-                allPartsForAuto = carPartsService.getAllPartsForAutoByCategoryAndSorting(currentCar, categoryId.get(), sortingType);
+                if (categoryId.get().equals(999)) {
+                    allPartsForAuto = carPartsService.getAllPartsForAutoBySellerAndSorting(currentCar, categoryId.get(), sortingType);
+                    modelAndView.addObject("currentSeller", sellerId.get());
+                }
+                else {
+                    allPartsForAuto = carPartsService.getAllPartsForAutoByCategoryAndSorting(currentCar, categoryId.get(), sortingType);
+                }
             }
             modelAndView.addObject("currentCategory", categoryId.get());
         }
         else {
             allPartsForAuto = carPartsService.getAllPartsForAutoAndSorting(currentCar, sortingType);
         }
+
         modelAndView.addObject("carPartsForAuto", allPartsForAuto);
         modelAndView.addObject("currentCar", currentCar);
         return modelAndView;
